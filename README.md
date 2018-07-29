@@ -1,3 +1,8 @@
+* Harshit Khurana
+* 25.02.18
+
+
+
 SimpleBlockchain
 
 -> For basic understanding , learning and implementation of Blockchain.
