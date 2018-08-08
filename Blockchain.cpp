@@ -4,19 +4,6 @@
 
 using namespace std;
 
-long int gethash( Blockchain *node ){ // Hash
-
-	long int hash = 0;
-	string data = node->data;
-	int count = 1;
-	for ( int i = data.length(); i > -1; i -- ) // Hash value is simply the ASCII value of character multiplied by its index
-	{
-		hash += count * data[i];
-		count *= 10;
-	}
-	return hash;
-}
-
 Blockchain * takeInput(){ // It will return The head i.e address of first block in the blockchain.
 
 	string data;
