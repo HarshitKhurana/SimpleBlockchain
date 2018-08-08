@@ -1,6 +1,6 @@
 /*
  * Code used for SHA512 hashing.
- * Made some modefications in code borrowed from https://ubuntuforums.org/archive/index.php/t-337664.html#navbar user 'TomChuk' ( Thanks buddy , get in touch for a more formal credit)
+ * Made some modifications in code borrowed from https://ubuntuforums.org/archive/index.php/t-337664.html user 'TomChuk' ( Thanks buddy , get in touch for a more formal credit)
  */
 
 #include <gcrypt.h>
