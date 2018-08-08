@@ -1,6 +1,6 @@
-
 #include<iostream>
 #include"Blockchain.h"
+#include "SHA512.cpp"
 
 using namespace std;
 
@@ -23,18 +23,19 @@ Blockchain * takeInput(){ // It will return The head i.e address of first block 
 	Blockchain *head = NULL; // First block in Blockchain
 	Blockchain *node = NULL; // Intermediate block of blockchain
 	cout <<"Please enter data, press 'q' to quit/stop"<<endl;
-	cin>>data;
+	cin >> data;
 
 	while ( data.compare("q") ){
 		Blockchain *block = new Blockchain(data); // Creating a block
 		cout << "New Block Created \n";
 		if ( head == NULL){
 			head  = block; // First block
-			head->hash = 0; // Hash of first block initialised to 0
+			head->hash = ""; // Hash of first block initialised to 0
 			node = head; 
 		}
 		else{
-			block->hash = gethash(node); // Storing hash of previous block in Current Block
+			//block->hash = gethash(node); // Storing hash of previous block in Current Block
+			block->hash = sha(node->data); // Storing hash of previous block in Current Block
 			node->next = block;
 			node = node->next;
 		}
@@ -43,6 +44,18 @@ Blockchain * takeInput(){ // It will return The head i.e address of first block 
 
 	return head; // Returning address of first block of Blockchain
 	
+}
+
+string toUpper(string data)
+{
+	char DATA[data.length()+1];
+	int i = 0;
+	for ( ; i < data.length(); i ++){
+		DATA[i] = char(int(data[i]) + 65 -97 );
+	}
+	DATA[i] = '\0';
+	string str_DATA(DATA);
+	return str_DATA;
 }
 
 
@@ -62,7 +75,7 @@ int main(){
 	int count = 1 ; 
 	while ( block != NULL){
 		cout <<count<<". Address of Current Block : "<<block<<endl;
-		cout <<"\tBlock data: " << block->data<<endl;
+		cout <<"\tBlock data: " << toUpper(block->data)<<endl;
 		cout <<"\tHash of Previous Block : " << block->hash<<endl;
 		cout <<"\tAddress of next Block : " << block->next<<endl<<endl;
 		block = block ->next;
