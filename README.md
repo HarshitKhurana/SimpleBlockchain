@@ -11,4 +11,4 @@ SimpleBlockchain
 
 Dependencies :
 	
-	* Required libgcrypt library installed in order to use Hashing i.e version 1.1.0 or else switch to version 1.0.0.
+	-> Required libgcrypt library installed in order to use Hashing i.e version 1.1.0 or else switch to version 1.0.0.
